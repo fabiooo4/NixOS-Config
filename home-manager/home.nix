@@ -11,6 +11,36 @@
 
   home.stateVersion = "24.11"; # Don't change
 
+  /*
+     home.pointerCursor = {
+    package = pkgs.simp1e-cursors;
+    name = "Simp1e-Adw-Dark";
+    size = 24;
+
+    x11.enable = true;
+  };
+  */
+
+  home.pointerCursor = let
+    getFrom = url: hash: name: {
+      gtk.enable = true;
+      x11.enable = true;
+      name = name;
+      size = 48;
+      package = pkgs.runCommand "moveUp" {} ''
+        mkdir -p $out/share/icons
+        ln -s ${pkgs.fetchzip {
+          url = url;
+          hash = hash;
+        }} $out/share/icons/${name}
+      '';
+    };
+  in
+    getFrom
+    "https://github.com/ful1e5/XCursor-pro/releases/download/v2.0.2/XCursor-Pro-Dark.tar.xz"
+    "sha256-x1rmWRGPXshOgcxTUXbhWTQHAO/BT6XVfE8SVLNFMk4="
+    "XCursor-Pro-Dark";
+
   # The home.packages option allows you to install Nix packages into your
   # environment
   home.packages = with pkgs; [
