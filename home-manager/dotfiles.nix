@@ -17,7 +17,7 @@
     home.packages = [
       (import ../rebuild.nix {
         inherit pkgs;
-        nixosDirectory = "${config.dotfiles}/.config/nixos";
+        nixosDirectory = "${config.dotfiles}/.config/nixconfig";
       })
     ];
     home.activation = {
