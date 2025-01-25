@@ -1,16 +1,18 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-      inputs.xremap-flake.nixosModules.default
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+    inputs.xremap-flake.nixosModules.default
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -54,8 +56,8 @@
   services.gnome.core-utilities.enable = false;
 
   # Remove default programs
-  services.xserver.excludePackages = [ pkgs.xterm ];
-  environment.gnome.excludePackages = [ pkgs.gnome-tour ];
+  services.xserver.excludePackages = [pkgs.xterm];
+  environment.gnome.excludePackages = [pkgs.gnome-tour];
   environment.extraSetup = ''
     rm $out/share/applications/cups.desktop
   '';
@@ -73,10 +75,10 @@
       keymap = [
         {
           name = "Capslock to Esc";
-	  remap = {
+          remap = {
             "CapsLock" = "esc";
-	  };
-	}
+          };
+        }
       ];
     };
   };
@@ -110,7 +112,7 @@
   users.users.fabibo = {
     isNormalUser = true;
     description = "Fabio";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
     ];
   };
@@ -134,12 +136,13 @@
   nixpkgs.config.allowUnfree = true;
 
   # Activate flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    delta
     google-chrome
     sioyek
     kitty

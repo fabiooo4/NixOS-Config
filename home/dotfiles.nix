@@ -1,5 +1,9 @@
-{ config, pkgs, lib, ... }:
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   options = {
     dotfiles = lib.mkOption {
       type = lib.types.path;
@@ -10,25 +14,31 @@
     };
   };
   config = {
+    home.packages = [
+      (import ../rebuild.nix {
+        inherit pkgs;
+        nixosDirectory = "${config.dotfiles}/.config/nixos";
+      })
+    ];
     home.activation = {
       # Clone dotfiles repo
       cloneDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
-	  if ! [[ -d "${config.dotfiles}" ]]; then
-            ${pkgs.git}/bin/git clone https://github.com/fabiooo4/dotfiles.git ${config.dotfiles} 
-            ${pkgs.git}/bin/git clone https://github.com/fabiooo4/Neovim.git ${config.dotfiles}/.config/nvim
-            cd ${config.dotfiles}
-            ${pkgs.git}/bin/git remote remove origin
-            ${pkgs.git}/bin/git remote add origin git@github.com:fabiooo4/dotfiles.git
-            cd ${config.dotfiles}/.config/nvim
-            ${pkgs.git}/bin/git remote remove origin
-            ${pkgs.git}/bin/git remote add origin git@github.com:fabiooo4/Neovim.git
-          fi
-        '';
+        if ! [[ -d "${config.dotfiles}" ]]; then
+                 ${pkgs.git}/bin/git clone https://github.com/fabiooo4/dotfiles.git ${config.dotfiles}
+                 ${pkgs.git}/bin/git clone https://github.com/fabiooo4/Neovim.git ${config.dotfiles}/.config/nvim
+                 cd ${config.dotfiles}
+                 ${pkgs.git}/bin/git remote remove origin
+                 ${pkgs.git}/bin/git remote add origin git@github.com:fabiooo4/dotfiles.git
+                 cd ${config.dotfiles}/.config/nvim
+                 ${pkgs.git}/bin/git remote remove origin
+                 ${pkgs.git}/bin/git remote add origin git@github.com:fabiooo4/Neovim.git
+               fi
+      '';
     };
 
     # Kitty
     home.file = {
-     ".config/kitty" = {
+      ".config/kitty" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.config/kitty";
       };
     };
@@ -38,45 +48,45 @@
       # Clone zplug for plugin management
       # This is needed because all the plugins are in .zshrc
       cloneZplug = lib.hm.dag.entryAfter ["writeBoundary"] ''
-	  if ! [[ -d "$HOME/.zplug" ]]; then
-            ${pkgs.git}/bin/git clone https://github.com/zplug/zplug ~/.zplug
-          fi
-        '';
+        if ! [[ -d "${config.home.homeDirectory}/.zplug" ]]; then
+                 ${pkgs.git}/bin/git clone https://github.com/zplug/zplug ~/.zplug
+               fi
+      '';
     };
     home.file = {
-     ".zshrc" = {
+      ".zshrc" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.zshrc";
       };
 
-     ".zsh" = {
+      ".zsh" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.zsh";
       };
     };
 
     # Latexmkrc
     home.file = {
-     ".latexmkrc" = {
+      ".latexmkrc" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.latexmkrc";
       };
     };
 
     # Gitconfig
     home.file = {
-     ".gitconfig" = {
+      ".gitconfig" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.gitconfig";
       };
     };
 
     # Sioyek
     home.file = {
-     ".config/sioyek" = {
+      ".config/sioyek" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.config/sioyek";
       };
     };
 
     # Nvim
     home.file = {
-     ".config/nvim" = {
+      ".config/nvim" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.config/nvim";
       };
     };

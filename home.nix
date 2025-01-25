@@ -1,14 +1,16 @@
-{ config, pkgs, ... }:
-
 {
-  imports = [ ./home/dotfiles.nix ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [./home/dotfiles.nix];
   home.username = "fabibo";
   home.homeDirectory = "/home/fabibo";
 
   home.stateVersion = "24.11"; # Don't change
 
   # The home.packages option allows you to install Nix packages into your
-  # environment.
+  # environment
   home.packages = with pkgs; [
     starship
     # Neovim dependencies
@@ -33,8 +35,8 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    extraLuaPackages = ps: [ ps.magick ];
-    extraPackages = [ pkgs.imagemagick ];
+    extraLuaPackages = ps: [ps.magick];
+    extraPackages = [pkgs.imagemagick];
   };
 
   # Setup rustup
@@ -49,6 +51,6 @@
     TERMINAL = "kitty";
   };
 
-  # Let Home Manager install and manage itself.
+  # Let Home Manager install and manage itself
   programs.home-manager.enable = true;
 }
