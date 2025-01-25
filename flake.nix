@@ -10,6 +10,8 @@
     };
 
     xremap-flake.url = "github:xremap/nix-flake";
+
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {
@@ -28,6 +30,7 @@
         modules = [
           ./nixos/configuration.nix
           # inputs.home-manager.nixosModules.default
+          inputs.stylix.nixosModules.stylix
         ];
       };
     };
