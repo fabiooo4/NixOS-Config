@@ -30,6 +30,7 @@
         modules = [
           ./nixos/configuration.nix
           # inputs.home-manager.nixosModules.default
+          inputs.xremap-flake.nixosModules.default
           inputs.stylix.nixosModules.stylix
         ];
       };
@@ -39,7 +40,10 @@
       fabibo = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [./home-manager/home.nix];
+        modules = [
+          inputs.stylix.homeManagerModules.stylix
+          ./home-manager/home.nix
+        ];
       };
     };
   };
