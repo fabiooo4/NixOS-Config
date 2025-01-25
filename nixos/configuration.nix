@@ -161,8 +161,8 @@
   ];
 
   # Style
+  stylix.enable = true;
   stylix = {
-    enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
     image = ../wallpaper.png;
   };
@@ -170,6 +170,13 @@
   stylix.cursor = {
     package = pkgs.xcursor-pro;
     name = "XCursor-Pro-Dark";
+  };
+
+  stylix.fonts = {
+    monospace = {
+      package = pkgs.cascadia-code;
+      name = "Caskaydia Cove Nerd Font";
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
