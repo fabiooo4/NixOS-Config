@@ -48,10 +48,6 @@
     run ${pkgs.rustup}/bin/rustup component add rust-analyzer
   '';
 
-  programs.sioyek.config = {
-    "startup_commands" = "toggle_statusbar";
-  };
-
   home.sessionVariables = {
     EDITOR = "nvim";
     BROWSER = "google-chrome";
