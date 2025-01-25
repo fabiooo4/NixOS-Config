@@ -168,14 +168,14 @@
   };
 
   stylix.cursor = {
-    package = pkgs.xcursor-pro;
-    name = "XCursor-Pro-Dark";
+    package = pkgs.apple-cursor;
+    name = "macOS";
   };
 
   stylix.fonts = {
     monospace = {
       package = pkgs.nerd-fonts.caskaydia-cove;
-      name = "Caskaydia Cove Nerd Font";
+      name = "CaskaydiaCove Nerd Font";
     };
   };
 
