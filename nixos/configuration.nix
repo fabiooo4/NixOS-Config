@@ -167,6 +167,11 @@
     image = ../wallpaper.png;
   };
 
+  stylix.cursor = {
+    package = pkgs.xcursor-pro;
+    name = "XCursor-Pro-Dark";
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
