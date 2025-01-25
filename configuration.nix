@@ -152,6 +152,8 @@
     fzf
     eza
     bat
+    nixd
+    alejandra
   ];
 
   # Change default shell to zsh

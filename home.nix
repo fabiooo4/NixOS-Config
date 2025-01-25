@@ -17,8 +17,6 @@
     lua51Packages.lua
     luajitPackages.luarocks
     stylua
-    nixd
-    alejandra
     nodePackages.prettier
     ripgrep
     gcc
