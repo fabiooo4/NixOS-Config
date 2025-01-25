@@ -159,7 +159,6 @@
   environment.systemPackages = with pkgs; [
     git
     delta
-    google-chrome
     sioyek
     kitty
     zoxide
