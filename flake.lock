@@ -2,6 +2,7 @@
   "nodes": {
     "aquamarine": {
       "inputs": {
+
         "hyprutils": [
           "xremap-flake",
           "hyprland",
