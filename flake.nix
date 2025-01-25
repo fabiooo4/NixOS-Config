@@ -32,7 +32,7 @@
     homeConfigurations.nixos = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
 
-      modules = [./home-configuration.nix];
+      modules = [./home-manger/home-configuration.nix];
     };
   };
 }
