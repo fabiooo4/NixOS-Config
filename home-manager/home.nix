@@ -49,10 +49,14 @@
     fzf
     eza
     bat
+    starship
+
     sioyek
     kitty
     google-chrome
-    starship
+
+    cascadia-code
+
     # Neovim dependencies
     lua51Packages.lua
     luajitPackages.luarocks
@@ -73,6 +77,8 @@
     rustup
     # --------------
   ];
+
+  fonts.fontconfig.enable = true;
 
   programs.neovim = {
     enable = true;
