@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  imports = [./dotfiles.nix];
+  imports = [./home-manager/dotfiles.nix];
   nixpkgs.config.allowUnfree = true;
 
   home.username = "fabibo";

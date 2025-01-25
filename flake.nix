@@ -23,6 +23,7 @@
   in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
+        inherit system;
         specialArgs = {inherit inputs;};
         modules = [
           ./configuration.nix
@@ -35,7 +36,7 @@
       "fabibo@nixos" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [./home-manger/home.nix];
+        modules = [./home.nix];
       };
     };
   };
