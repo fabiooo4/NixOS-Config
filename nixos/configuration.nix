@@ -147,12 +147,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    git
-    zoxide
-    fzf
-    eza
-    bat
+  environment.systemPackages = [
   ];
 
   # Change default shell to zsh
