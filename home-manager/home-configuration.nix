@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  imports = [./home/dotfiles.nix];
+  imports = [./dotfiles.nix];
   home.username = "fabibo";
   home.homeDirectory = "/home/fabibo";
 

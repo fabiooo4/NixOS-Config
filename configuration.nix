@@ -10,7 +10,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # inputs.home-manager.nixosModules.default
+    inputs.home-manager.nixosModules.default
     inputs.xremap-flake.nixosModules.default
   ];
 
@@ -117,12 +117,12 @@
     ];
   };
 
-  # home-manager = {
-  #   extraSpecialArgs = {inherit inputs;};
-  #   users = {
-  #     "fabibo" = import ./home.nix;
-  #   };
-  # };
+  home-manager = {
+    extraSpecialArgs = {inherit inputs;};
+    users = {
+      "fabibo" = import ./home-manager/home-configuration.nix;
+    };
+  };
 
   # Enable automatic login for the user.
   # services.xserver.displayManager.autoLogin.enable = true;
@@ -143,7 +143,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    home-manager
     git
     delta
     google-chrome
