@@ -14,6 +14,8 @@
   # The home.packages option allows you to install Nix packages into your
   # environment
   home.packages = with pkgs; [
+    sioyek
+    kitty
     google-chrome
     starship
     # Neovim dependencies
@@ -46,8 +48,8 @@
 
   # Setup rustup
   home.activation.rustupDefaultChannel = ''
-    run ${pkgs.rustup}/bin/rustup default stable
-    run ${pkgs.rustup}/bin/rustup component add rust-analyzer
+    run ${pkgs.rustup}/bin/rustup -q default stable
+    run ${pkgs.rustup}/bin/rustup -q component add rust-analyzer
   '';
 
   home.sessionVariables = {

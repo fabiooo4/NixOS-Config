@@ -128,15 +128,6 @@
     ];
   };
 
-  /*
-     home-manager = {
-    extraSpecialArgs = {inherit inputs;};
-    users = {
-      "fabibo" = import ./home-manager/home.nix;
-    };
-  };
-  */
-
   # Enable automatic login for the user.
   # services.xserver.displayManager.autoLogin.enable = true;
   # services.xserver.displayManager.autoLogin.user = "fabibo";
@@ -158,9 +149,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
-    delta
-    sioyek
-    kitty
     zoxide
     fzf
     eza
