@@ -113,7 +113,7 @@
     isNormalUser = true;
     description = "Fabio";
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
+    packages = [
     ];
   };
 
@@ -157,6 +157,12 @@
   # Change default shell to zsh
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = [
+    # Add any missing dynamic libraries for unpackaged programs
+    # here, NOT in environment.systemPackages
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
