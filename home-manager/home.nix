@@ -11,7 +11,7 @@
 
   home.stateVersion = "24.11"; # Don't change
 
-  home.pointerCursor = {
+  gtk.cursorTheme = {
     package = pkgs.simp1e-cursors;
     name = "Simp1e-Adw-Dark";
     size = 24;
