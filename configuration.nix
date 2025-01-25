@@ -10,41 +10,49 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
+    # inputs.home-manager.nixosModules.default
     inputs.xremap-flake.nixosModules.default
   ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/vda";
+    useOSProber = true;
+  };
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking = {
+    hostName = "nixos"; # Define your hostname.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    # Enable networking
+    networkmanager.enable = true;
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    # Configure network proxy if necessary
+    # proxy = {
+    #    default = "http://user:password@proxy:port/";
+    #    noProxy = "127.0.0.1,localhost,internal.domain";
+    # };
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "it_IT.UTF-8";
-    LC_IDENTIFICATION = "it_IT.UTF-8";
-    LC_MEASUREMENT = "it_IT.UTF-8";
-    LC_MONETARY = "it_IT.UTF-8";
-    LC_NAME = "it_IT.UTF-8";
-    LC_NUMERIC = "it_IT.UTF-8";
-    LC_PAPER = "it_IT.UTF-8";
-    LC_TELEPHONE = "it_IT.UTF-8";
-    LC_TIME = "it_IT.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "it_IT.UTF-8";
+      LC_IDENTIFICATION = "it_IT.UTF-8";
+      LC_MEASUREMENT = "it_IT.UTF-8";
+      LC_MONETARY = "it_IT.UTF-8";
+      LC_NAME = "it_IT.UTF-8";
+      LC_NUMERIC = "it_IT.UTF-8";
+      LC_PAPER = "it_IT.UTF-8";
+      LC_TELEPHONE = "it_IT.UTF-8";
+      LC_TIME = "it_IT.UTF-8";
+    };
   };
 
   # Enable the X11 windowing system.
@@ -53,14 +61,17 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+
   services.gnome.core-utilities.enable = false;
 
   # Remove default programs
   services.xserver.excludePackages = [pkgs.xterm];
-  environment.gnome.excludePackages = [pkgs.gnome-tour];
-  environment.extraSetup = ''
-    rm $out/share/applications/cups.desktop
-  '';
+  environment = {
+    gnome.excludePackages = [pkgs.gnome-tour];
+    extraSetup = ''
+      rm $out/share/applications/cups.desktop
+    '';
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -117,12 +128,14 @@
     ];
   };
 
-  home-manager = {
+  /*
+     home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "fabibo" = import ./home-manager/home-configuration.nix;
+      "fabibo" = import ./home-manager/home.nix;
     };
   };
+  */
 
   # Enable automatic login for the user.
   # services.xserver.displayManager.autoLogin.enable = true;
@@ -136,9 +149,10 @@
   nixpkgs.config.allowUnfree = true;
 
   # Activate flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+  nix = {
+    settings.experimental-features = ["nix-command" "flakes"];
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

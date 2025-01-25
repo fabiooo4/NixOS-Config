@@ -4,6 +4,8 @@
   ...
 }: {
   imports = [./dotfiles.nix];
+  nixpkgs.config.allowUnfree = true;
+
   home.username = "fabibo";
   home.homeDirectory = "/home/fabibo";
 
@@ -12,7 +14,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment
   home.packages = with pkgs; [
-    mapscii
     starship
     # Neovim dependencies
     lua51Packages.lua
@@ -53,6 +54,9 @@
     BROWSER = "google-chrome";
     TERMINAL = "kitty";
   };
+
+  # Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
 
   # Let Home Manager install and manage itself
   programs.home-manager.enable = true;
