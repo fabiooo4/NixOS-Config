@@ -28,8 +28,8 @@ pkgs.writeShellScriptBin "rebuild" ''
 
   echo "NixOS Rebuilding..."
 
-  # Rebuild, output simplified errors and progress, log tracebacks
-  sudo nixos-rebuild switch --flake ${nixosDirectory} &> nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+  # Rebuild
+  sudo nixos-rebuild switch --flake ${nixosDirectory} #&> nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
 
   # Get current generation metadata
   current=$(nixos-rebuild list-generations | grep current)
