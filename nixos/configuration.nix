@@ -163,7 +163,7 @@
   # Style
   stylix = {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-    image = "https://github.com/fabiooo4/wallpapers/blob/5eb817ebf931e3b8bbe80cb23712806b6e0569b5/wallhaven-5w6w89.png";
+    image = ../wallpaper.png;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
