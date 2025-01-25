@@ -3,7 +3,12 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  rebuild-script = import ../modules/home-manager/rebuild.nix {
+    inherit pkgs;
+    nixosDirectory = "${config.dotfiles}/.config/nixconfig";
+  };
+in {
   options = {
     dotfiles = lib.mkOption {
       type = lib.types.path;
@@ -15,11 +20,9 @@
   };
   config = {
     home.packages = [
-      (import ../rebuild.nix {
-        inherit pkgs;
-        nixosDirectory = "${config.dotfiles}/.config/nixconfig";
-      })
+      rebuild-script
     ];
+
     home.activation = {
       # Clone dotfiles repo
       cloneDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
