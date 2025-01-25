@@ -175,7 +175,7 @@
   stylix.fonts = {
     monospace = {
       package = pkgs.cascadia-code;
-      name = "Caskaydia Cove Nerd Font";
+      name = "Cascadia Code NF";
     };
   };
 
