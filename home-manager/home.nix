@@ -11,15 +11,13 @@
 
   home.stateVersion = "24.11"; # Don't change
 
-  /*
-     home.pointerCursor = {
+  home.pointerCursor = {
     package = pkgs.simp1e-cursors;
     name = "Simp1e-Adw-Dark";
     size = 24;
 
     x11.enable = true;
   };
-  */
 
   /*
      home.pointerCursor = let
@@ -42,26 +40,6 @@
     "sha256-x1rmWRGPXshOgcxTUXbhWTQHAO/BT6XVfE8SVLNFMk4="
     "XCursor-Pro-Dark";
   */
-
-  home.pointerCursor = let
-    getFrom = url: hash: name: {
-      gtk.enable = true;
-      x11.enable = true;
-      name = name;
-      size = 48;
-      package = pkgs.runCommand "moveUp" {} ''
-        mkdir -p $out/share/icons
-        ln -s ${pkgs.fetchzip {
-          url = url;
-          hash = hash;
-        }} $out/share/icons/${name}
-      '';
-    };
-  in
-    getFrom
-    "https://github.com/ful1e5/fuchsia-cursor/releases/download/v2.0.0/Fuchsia-Pop.tar.gz"
-    "sha256-BvVE9qupMjw7JRqFUj1J0a4ys6kc9fOLBPx2bGaapTk="
-    "Fuchsia-Pop";
 
   # The home.packages option allows you to install Nix packages into your
   # environment
