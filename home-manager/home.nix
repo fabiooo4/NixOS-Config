@@ -72,6 +72,8 @@
     image = ../wallpaper.png;
   };
 
+  stylix.targets.neovim.enable = false;
+
   stylix.cursor = {
     package = pkgs.apple-cursor;
     name = "macOS";
@@ -82,6 +84,8 @@
       package = pkgs.nerd-fonts.caskaydia-cove;
       name = "CaskaydiaCove Nerd Font";
     };
+    serif = config.stylix.fonts.monospace;
+    sansSerif = config.stylix.fonts.monospace;
   };
 
   # Nicely reload system units when changing configs
