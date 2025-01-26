@@ -170,6 +170,7 @@
   stylix.cursor = {
     package = pkgs.xcursor-pro;
     name = "XCursor-Pro-Dark";
+    size = 24;
   };
 
   stylix.fonts = {
