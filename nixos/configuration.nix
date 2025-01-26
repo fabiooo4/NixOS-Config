@@ -168,8 +168,8 @@
   };
 
   stylix.cursor = {
-    package = pkgs.apple-cursor;
-    name = "macOS";
+    package = pkgs.xcursor-pro;
+    name = "XCursor-Pro-Dark";
   };
 
   stylix.fonts = {
@@ -177,6 +177,8 @@
       package = pkgs.nerd-fonts.caskaydia-cove;
       name = "CaskaydiaCove Nerd Font";
     };
+    serif = config.stylix.fonts.monospace;
+    sansSerif = config.stylix.fonts.monospace;
   };
 
   # Some programs need SUID wrappers, can be configured further or are

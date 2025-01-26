@@ -75,8 +75,8 @@
   stylix.targets.neovim.enable = false;
 
   stylix.cursor = {
-    package = pkgs.apple-cursor;
-    name = "macOS";
+    package = pkgs.xcursor-pro;
+    name = "XCursor-Pro-Dark";
   };
 
   stylix.fonts = {
