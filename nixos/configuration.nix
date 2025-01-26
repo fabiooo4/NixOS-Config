@@ -167,6 +167,8 @@
     image = ../wallpaper.png;
   };
 
+  stylix.targets.chromium.enable = false;
+
   stylix.cursor = {
     package = pkgs.xcursor-pro;
     name = "XCursor-Pro-Dark";
