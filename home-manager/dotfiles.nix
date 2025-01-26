@@ -88,11 +88,13 @@ in {
     };
 
     # Nvim
-    home.file = {
+    /*
+       home.file = {
       ".config/nvim" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.config/nvim";
       };
     };
+    */
 
     # Starship
     home.file = {

@@ -65,6 +65,25 @@
     TERMINAL = "kitty";
   };
 
+  # Style
+  stylix.enable = true;
+  stylix = {
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    image = ../wallpaper.png;
+  };
+
+  stylix.cursor = {
+    package = pkgs.apple-cursor;
+    name = "macOS";
+  };
+
+  stylix.fonts = {
+    monospace = {
+      package = pkgs.nerd-fonts.caskaydia-cove;
+      name = "CaskaydiaCove Nerd Font";
+    };
+  };
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
