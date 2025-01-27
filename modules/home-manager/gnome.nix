@@ -47,6 +47,7 @@
   home.packages = with pkgs.gnomeExtensions; [
     blur-my-shell
     alttab-mod
+    app-hider
   ];
 
   dconf.settings = {
@@ -84,6 +85,13 @@
       raise-first-instance-only = true;
       current-workspace-only-window = true;
       disable-hover-select = true;
+    };
+
+    # App Hider
+    "appsorg/gnome/shell/extensions/app-hider" = {
+      hidden-apps = [
+        "extensions.desktop"
+      ];
     };
   };
 }
