@@ -99,5 +99,21 @@
     "org/gnome/shell/extensions/appindicator".legacy-tray-enabled = true;
 
     # Awesome Tiles
+    "org/gnome/shell/extensions/awesome-tiles" = {
+      enable-window-animation = true;
+      gap-size = 0;
+      gap-size-increments = 1;
+      shortcut-align-window-to-center = ["<Super>c"];
+      shortcut-decrease-gap-size = ["<Super>-"];
+      shortcut-increase-gap-size = ["<Super>+"];
+      shortcut-tile-window-to-bottom = ["<Super>dead_acute"];
+      shortcut-tile-window-to-bottom-right = ["<Super>period"];
+      shortcut-tile-window-to-center = ["<Super>backslash"];
+      shortcut-tile-window-to-left = ["<Super>bracketleft"];
+      shortcut-tile-window-to-right = ["<Super>bracketright"];
+      shortcut-tile-window-to-top = ["<Super>semicolon"];
+      shortcut-tile-window-to-top-right = ["<Super>slash"];
+      tiling-steps-side = "0.5, 0.601, 0.4";
+    };
   };
 }
