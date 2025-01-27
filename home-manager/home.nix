@@ -49,19 +49,6 @@
     # --------------
   ];
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    extraLuaPackages = ps: [ps.magick];
-    extraPackages = [pkgs.imagemagick];
-  };
-
-  # Setup rustup
-  home.activation.rustupDefaultChannel = ''
-    run ${pkgs.rustup}/bin/rustup -q default stable
-    run ${pkgs.rustup}/bin/rustup -q component add rust-analyzer
-  '';
-
   home.sessionVariables = {
     EDITOR = "nvim";
     BROWSER = "google-chrome";
@@ -72,7 +59,10 @@
   stylix.enable = true;
   stylix = {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-    image = ../wallpaper.png;
+    image = pkgs.fetchurl {
+      url = "https://raw.githubusercontent.com/fabiooo4/wallpapers/main/wallhaven-5w6w89.png";
+      hash = "sha256-Z+CICFZSN64oIhhe66X7RlNn/gGCYAn30NLNoEHRYJY=";
+    };
   };
 
   stylix.targets.neovim.enable = false;

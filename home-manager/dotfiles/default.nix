@@ -17,6 +17,7 @@ in {
     ./sioyek.nix
     ./nvim.nix
     ./starship.nix
+    ./rust.nix
   ];
 
   options = {
