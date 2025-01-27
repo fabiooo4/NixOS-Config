@@ -23,6 +23,7 @@
     eza
     bat
     starship
+    yazi
 
     sioyek
     kitty
