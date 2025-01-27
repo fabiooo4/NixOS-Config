@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{pkgs, ...}: rec {
+  # To get these settings so that you can add them to your configuration after manually configuring them
+  # `dconf dump /org/gnome/`
+  # Another way to do this is to do `dconf watch /org/gnome` and then make the changes you want and then migrate them in as you see what they are.
+
   dconf.settings = {
     #
     # General system settings
@@ -35,9 +39,21 @@
       move-to-workspace-3 = ["<Shift><Super>3"];
       move-to-workspace-4 = ["<Shift><Super>4"];
     };
+  };
 
-    #
-    # Extensions
-    #
+  #
+  # Extensions
+  #
+  home.packages = with pkgs.gnomeExtensions; [
+    blur-my-shell
+  ];
+  dconf.settings = {
+    # First we enable every extension that we installed above
+    "org/gnome/shell".enabled-extensions =
+      (map (extension: extension.extensionUuid) home.packages)
+      # Then we add any extensions that come with gnome but aren't enabled
+      ++ [
+        "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
+      ];
   };
 }
