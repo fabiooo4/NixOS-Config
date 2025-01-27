@@ -2,6 +2,8 @@
   config,
   pkgs,
   inputs,
+  systemSettings,
+  userSettings,
   ...
 }: {
   imports = [
@@ -19,7 +21,7 @@
   };
 
   networking = {
-    hostName = "nixos"; # Define your hostname.
+    hostName = systemSettings.hostname; # Define your hostname.
 
     # Enable networking
     networkmanager.enable = true;
@@ -33,11 +35,11 @@
   };
 
   # Set your time zone.
-  time.timeZone = "Europe/Rome";
+  time.timeZone = systemSettings.timezone;
 
   # Select internationalisation properties.
   i18n = {
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = systemSettings.locale;
 
     extraLocaleSettings = {
       LC_ADDRESS = "it_IT.UTF-8";
@@ -81,7 +83,7 @@
 
   # Configure remaps
   services.xremap = {
-    userName = "fabibo";
+    userName = userSettings.username;
     config = {
       keymap = [
         {
@@ -120,9 +122,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.fabibo = {
+  users.users.${userSettings.username} = {
     isNormalUser = true;
-    description = "Fabio";
+    description = userSettings.name;
     extraGroups = ["networkmanager" "wheel"];
     packages = [
     ];
@@ -130,7 +132,7 @@
 
   # Enable automatic login for the user.
   # services.xserver.displayManager.autoLogin.enable = true;
-  # services.xserver.displayManager.autoLogin.user = "fabibo";
+  # services.xserver.displayManager.autoLogin.user = "fabio";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
@@ -172,15 +174,15 @@
   stylix.targets.chromium.enable = false;
 
   stylix.cursor = {
-    package = pkgs.xcursor-pro;
-    name = "XCursor-Pro-Dark";
+    package = userSettings.cursorPkg;
+    name = userSettings.cursor;
     size = 24;
   };
 
   stylix.fonts = {
     monospace = {
-      package = pkgs.nerd-fonts.caskaydia-cove;
-      name = "CaskaydiaCove Nerd Font";
+      package = userSettings.fontPkg;
+      name = userSettings.font;
     };
     serif = config.stylix.fonts.monospace;
     sansSerif = config.stylix.fonts.monospace;

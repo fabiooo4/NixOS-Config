@@ -1,22 +1,30 @@
 {
   config,
   pkgs,
+  userSettings,
   ...
-}: {
+}: let
+  rebuild-script = import ../scripts/rebuild.nix {
+    inherit pkgs;
+    nixosDirectory = userSettings.nixosConfigDir;
+  };
+in {
   imports = [
     ./dotfiles
     ../modules/home-manager/gnome.nix
   ];
   nixpkgs.config.allowUnfree = true;
 
-  home.username = "fabibo";
-  home.homeDirectory = "/home/fabibo";
+  home.username = userSettings.username;
+  home.homeDirectory = "/home/" + userSettings.username;
 
   home.stateVersion = "24.11"; # Don't change
 
   # The home.packages option allows you to install Nix packages into your
   # environment
   home.packages = with pkgs; [
+    rebuild-script
+
     git
     zoxide
     fzf
@@ -51,9 +59,9 @@
   ];
 
   home.sessionVariables = {
-    EDITOR = "nvim";
-    BROWSER = "google-chrome";
-    TERMINAL = "kitty";
+    EDITOR = userSettings.editor;
+    BROWSER = userSettings.browser;
+    TERMINAS = userSettings.term;
   };
 
   # Style
@@ -69,15 +77,15 @@
   stylix.targets.neovim.enable = false;
 
   stylix.cursor = {
-    package = pkgs.xcursor-pro;
-    name = "XCursor-Pro-Dark";
+    package = userSettings.cursorPkg;
+    name = userSettings.cursor;
     size = 24;
   };
 
   stylix.fonts = {
     monospace = {
-      package = pkgs.nerd-fonts.caskaydia-cove;
-      name = "CaskaydiaCove Nerd Font";
+      package = userSettings.fontPkg;
+      name = userSettings.font;
     };
     serif = config.stylix.fonts.monospace;
     sansSerif = config.stylix.fonts.monospace;

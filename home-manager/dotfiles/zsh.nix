@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  userSettings,
   ...
 }: {
   # Zsh
@@ -16,11 +17,11 @@
   };
   home.file = {
     ".zshrc" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.zshrc";
+      source = config.lib.file.mkOutOfStoreSymlink "${userSettings.dotfilesDir}/.zshrc";
     };
 
     ".zsh" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.zsh";
+      source = config.lib.file.mkOutOfStoreSymlink "${userSettings.dotfilesDir}/.zsh";
     };
   };
 }
