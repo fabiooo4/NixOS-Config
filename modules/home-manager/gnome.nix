@@ -49,6 +49,7 @@
     alttab-mod
     app-hider
     appindicator
+    awesome-tiles
   ];
 
   dconf.settings = {
@@ -89,9 +90,14 @@
     };
 
     # App Hider
-    "org/gnome/shell/extensions.app-hider".hidden-apps = [
+    "org/gnome/shell/extensions/app-hider".hidden-apps = [
       "org.gnome.Extensions.desktop"
       "nvim.desktop"
     ];
+
+    # App Indicator
+    "org/gnome/shell/extensions/appindicator".legacy-tray-enabled = true;
+
+    # Awesome Tiles
   };
 }
