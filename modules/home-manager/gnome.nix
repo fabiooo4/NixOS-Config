@@ -88,10 +88,7 @@
     };
 
     # App Hider
-    "org/gnome/shell/extensions/app-hider" = {
-      hidden-apps = [
-        "extensions.desktop"
-      ];
-    };
+    "org/gnome/shell/extensions.app-hider".hidden-apps = [
+    ];
   };
 }
