@@ -67,10 +67,6 @@
       style-panel = 0;
       unblur-in-overview = true;
     };
-    "org/gnome/shell/extensions/blur-my-shell/overview" = {
-      blur = true;
-      style-components = 2;
-    };
     "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
       blur = true;
       sigma = 30;
