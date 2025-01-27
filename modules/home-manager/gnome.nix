@@ -80,12 +80,10 @@
     };
 
     # AltTab Mod
-    /*
-       "org/gnome/shell/extensions/altTab-mod" = {
+    "org/gnome/shell/extensions/altTab-mod" = {
       raise-first-instance-only = true;
       current-workspace-only-window = true;
       disable-hover-select = true;
     };
-    */
   };
 }
