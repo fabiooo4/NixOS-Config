@@ -1,4 +1,8 @@
-{pkgs, ...}: rec {
+{
+  pkgs,
+  config,
+  ...
+}: rec {
   # To get these settings so that you can add them to your configuration after manually configuring them
   # `dconf dump /org/gnome/`
   # Another way to do this is to do `dconf watch /org/gnome` and then make the changes you want and then migrate them in as you see what they are.
@@ -45,11 +49,12 @@
   # Extensions
   #
   home.packages = with pkgs.gnomeExtensions; [
-    blur-my-shell
     alttab-mod
     app-hider
     appindicator
     awesome-tiles
+    blur-my-shell
+    burn-my-windows
   ];
 
   dconf.settings = {
@@ -60,27 +65,6 @@
       ++ [
         "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
       ];
-
-    # Blur my Shell
-    "org/gnome/shell/extensions/blur-my-shell/panel" = {
-      blur = true;
-      static-blur = false;
-      sigma = 0;
-      brightness = 0.0;
-      override-background = true;
-      style-panel = 0;
-      unblur-in-overview = true;
-    };
-    "org/gnome/shell/extensions/blur-my-shell/overview" = {
-      blur = true;
-      style-components = 2;
-    };
-    "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
-      blur = true;
-      sigma = 30;
-      brightness = 0.0;
-      style-dialogs = 3;
-    };
 
     # AltTab Mod
     "org/gnome/shell/extensions/altTab-mod" = {
@@ -115,5 +99,60 @@
       shortcut-tile-window-to-top-right = ["<Super>slash"];
       tiling-steps-side = "0.5, 0.601, 0.4";
     };
+
+    # Blur my Shell
+    "org/gnome/shell/extensions/blur-my-shell/panel" = {
+      blur = true;
+      static-blur = false;
+      sigma = 0;
+      brightness = 0.0;
+      override-background = true;
+      style-panel = 0;
+      unblur-in-overview = true;
+    };
+    "org/gnome/shell/extensions/blur-my-shell/overview" = {
+      blur = true;
+      style-components = 2;
+    };
+    "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
+      blur = true;
+      sigma = 30;
+      brightness = 0.0;
+      style-dialogs = 3;
+    };
+
+    # Burn My Windows (also has a config file below)
+    "org/gnome/shell/extensions/burn-my-windows".
+      active-profile = "/home/fabio/.config/burn-my-windows/profiles/default.conf";
   };
+
+  # Burn My Windows has a config file
+  home.file.".config/burn-my-windows/profiles/default.conf".text = ''
+    [burn-my-windows-profile]
+    fire-enable-effect=false
+    apparition-enable-effect=false
+    doom-enable-effect=false
+    broken-glass-enable-effect=false
+    energize-a-enable-effect=false
+    energize-b-enable-effect=false
+    glide-enable-effect=false
+    glitch-enable-effect=false
+    hexagon-enable-effect=false
+    incinerate-enable-effect=false
+    matrix-enable-effect=false
+    paint-brush-enable-effect=false
+    pixelate-enable-effect=false
+    pixel-wheel-enable-effect=false
+    pixel-wipe-enable-effect=false
+    portal-enable-effect=false
+    snap-enable-effect=false
+    trex-enable-effect=false
+    tv-enable-effect=true
+    tv-glitch-enable-effect=false
+    wisps-enable-effect=false
+    glide-animation-time=166
+    tv-effect-color="rgb(40,40,40)"
+    tv-animation-time=200
+  '';
+  # tv-effect-color="rgb(${config.stylix.base16Scheme.base00})"
 }
