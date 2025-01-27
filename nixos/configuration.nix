@@ -69,7 +69,6 @@
   environment = {
     gnome.excludePackages = with pkgs; [
       gnome-tour
-      gnome-shell-extensions
     ];
     extraSetup = ''
       rm $out/share/applications/cups.desktop
