@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  rebuild-script = import ../scripts/rebuild.nix {
+  rebuild-script = import ../../scripts/rebuild.nix {
     inherit pkgs;
     nixosDirectory = "${config.dotfiles}/.config/nixconfig";
   };

@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ./dotfiles.nix
+    ./dotfiles
     ../modules/home-manager/gnome.nix
   ];
   nixpkgs.config.allowUnfree = true;
