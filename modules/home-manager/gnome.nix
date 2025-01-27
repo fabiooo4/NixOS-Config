@@ -48,6 +48,7 @@
     blur-my-shell
     alttab-mod
     app-hider
+    appindicator
   ];
 
   dconf.settings = {
