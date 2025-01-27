@@ -56,6 +56,8 @@
     blur-my-shell
     burn-my-windows
     compiz-windows-effect
+    hide-keyboard-layout
+    hide-top-bar
   ];
 
   dconf.settings = {
@@ -135,6 +137,18 @@
       speedup-factor-divider = 3.8;
       x-tiles = 16.0;
       y-tiles = 3.0;
+    };
+
+    # Hide Top Bar
+    "org/gnome/shell/extensions/hidetopbar" = {
+      animation-time-overview = 0.2;
+      enable-active-window = false;
+      enable-intellihide = true;
+      keep-round-corners = false;
+      mouse-sensitive = false;
+      shortcut-delay = 1;
+      shortcut-keybinds = [];
+      show-in-overview = true;
     };
   };
 
