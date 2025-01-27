@@ -55,6 +55,7 @@
     awesome-tiles
     blur-my-shell
     burn-my-windows
+    compiz-windows-effect
   ];
 
   dconf.settings = {
@@ -124,6 +125,17 @@
     # Burn My Windows (also has a config file below)
     "org/gnome/shell/extensions/burn-my-windows".
       active-profile = "/home/fabio/.config/burn-my-windows/profiles/default.conf";
+
+    # Compiz window effects
+    "org/gnome/shell/extensions/com/github/hermes83/compiz-windows-effect" = {
+      friction = 2.6;
+      mass = 80.0;
+      maximize-effect = false;
+      resize-effect = true;
+      speedup-factor-divider = 3.8;
+      x-tiles = 16.0;
+      y-tiles = 3.0;
+    };
   };
 
   # Burn My Windows has a config file
