@@ -3,7 +3,10 @@
   pkgs,
   ...
 }: {
-  imports = [./dotfiles.nix];
+  imports = [
+    ./dotfiles.nix
+    ../modules/home-manager/gnome.nix
+  ];
   nixpkgs.config.allowUnfree = true;
 
   home.username = "fabibo";
