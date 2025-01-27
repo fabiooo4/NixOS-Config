@@ -9,6 +9,10 @@
     nixosDirectory = "${config.dotfiles}/.config/nixconfig";
   };
 in {
+  imports = [
+    ./kitty.nix
+  ];
+
   options = {
     dotfiles = lib.mkOption {
       type = lib.types.path;
@@ -37,13 +41,6 @@ in {
                  ${pkgs.git}/bin/git remote add origin git@github.com:fabiooo4/Neovim.git
                fi
       '';
-    };
-
-    # Kitty
-    home.file = {
-      ".config/kitty" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.config/kitty";
-      };
     };
 
     # Zsh
