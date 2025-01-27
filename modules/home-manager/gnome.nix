@@ -151,7 +151,7 @@
     tv-glitch-enable-effect=false
     wisps-enable-effect=false
     glide-animation-time=166
-    tv-effect-color="rgb(${config.lib.stylix.colors.base00})"
+    tv-effect-color="${config.lib.stylix.colors.withHashtag.base00})"
     tv-animation-time=200
   '';
   # tv-effect-color="rgb(40,40,40)"
