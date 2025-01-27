@@ -46,6 +46,7 @@
   #
   home.packages = with pkgs.gnomeExtensions; [
     blur-my-shell
+    alttab-mod
   ];
 
   dconf.settings = {
@@ -77,5 +78,14 @@
       brightness = 0.0;
       style-dialogs = 3;
     };
+
+    # AltTab Mod
+    /*
+       "org/gnome/shell/extensions/altTab-mod" = {
+      raise-first-instance-only = true;
+      current-workspace-only-window = true;
+      disable-hover-select = true;
+    };
+    */
   };
 }
