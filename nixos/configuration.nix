@@ -65,6 +65,7 @@
   services.gnome.core-utilities.enable = false;
 
   # Remove default programs
+  documentation.nixos.enable = false;
   services.xserver.excludePackages = [pkgs.xterm];
   environment = {
     gnome.excludePackages = with pkgs; [

@@ -89,6 +89,8 @@
 
     # App Hider
     "org/gnome/shell/extensions.app-hider".hidden-apps = [
+      "org.gnome.Extensions.desktop"
+      "nvim.desktop"
     ];
   };
 }
