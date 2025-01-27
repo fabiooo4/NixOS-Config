@@ -47,13 +47,17 @@
   home.packages = with pkgs.gnomeExtensions; [
     blur-my-shell
   ];
-  dconf.settings = {
-    # First we enable every extension that we installed above
+  /*
+     dconf.settings = {
+
+       # First we enable every extension that we installed above
     "org/gnome/shell".enabled-extensions =
       (map (extension: extension.extensionUuid) home.packages)
       # Then we add any extensions that come with gnome but aren't enabled
       ++ [
         "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
       ];
+
   };
+  */
 }

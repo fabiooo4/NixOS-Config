@@ -67,7 +67,10 @@
   # Remove default programs
   services.xserver.excludePackages = [pkgs.xterm];
   environment = {
-    gnome.excludePackages = [pkgs.gnome-tour];
+    gnome.excludePackages = with pkgs; [
+      gnome-tour
+      gnome-shell-extensions
+    ];
     extraSetup = ''
       rm $out/share/applications/cups.desktop
     '';
@@ -147,7 +150,8 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
+    # gnome-extension-manager
   ];
 
   # Change default shell to zsh
