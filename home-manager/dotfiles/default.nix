@@ -6,7 +6,7 @@
 }: let
   rebuild-script = import ../../scripts/rebuild.nix {
     inherit pkgs;
-    nixosDirectory = "${config.dotfiles}/.config/nixconfig";
+    nixosDirectory = "${config.home.homeDirectory}/.config/nixconfig";
   };
 in {
   imports = [
