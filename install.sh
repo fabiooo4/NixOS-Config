@@ -2,8 +2,7 @@
 # Automated script to install my dotfiles
 
 # Clone nix config
-if [ $# -gt 0 ]
-  then
+if [ $# -gt 0 ]; then
     SCRIPT_DIR=$1
   else
     SCRIPT_DIR=~/.config/nixconfig
