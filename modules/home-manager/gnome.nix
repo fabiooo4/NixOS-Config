@@ -56,5 +56,26 @@
       ++ [
         "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
       ];
+
+    # Blur my Shell
+    "org/gnome/shell/extensions/blur-my-shell/panel" = {
+      blur = true;
+      static-blur = false;
+      sigma = 0;
+      brightness = 0.0;
+      override-background = true;
+      style-panel = 0;
+      unblur-in-overview = true;
+    };
+    "org/gnome/shell/extensions/blur-my-shell/overview" = {
+      blur = true;
+      style-components = 2;
+    };
+    "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
+      blur = true;
+      sigma = 30;
+      brightness = 0.0;
+      style-dialogs = 3;
+    };
   };
 }
