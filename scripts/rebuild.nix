@@ -26,13 +26,13 @@ pkgs.writeShellScriptBin "rebuild" ''
   # Shows your changes
   ${pkgs.git}/bin/git diff -U0 '*.nix'
 
-  echo -e "\n\nNixOS Rebuilding..."
+  echo -e "NixOS Rebuilding..."
   # Rebuild, output simplified errors and progress, log tracebacks
   # sudo nixos-rebuild switch --flake ${nixosDirectory} &> >(tee nixos-switch.log) ||
   #   (echo -e "\n\nError summary:\n" && cat nixos-switch.log | grep --color error && exit 1)
   sudo nixos-rebuild switch --flake ${nixosDirectory}\#system || exit 1
 
-  echo -e "Home-Manager Rebuilding..."
+  echo -e "\n\nHome-Manager Rebuilding..."
   # Rebuild home manager
   # home-manager switch --flake ${nixosDirectory} &> >(tee home-switch.log) ||
   # (echo -e "\n\nError summary:\n" && cat home-switch.log | grep --color "error\|Error" && exit 1)
