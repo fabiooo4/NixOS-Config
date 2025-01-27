@@ -11,6 +11,12 @@
 in {
   imports = [
     ./kitty.nix
+    ./zsh.nix
+    ./latex.nix
+    ./git.nix
+    ./sioyek.nix
+    ./nvim.nix
+    ./starship.nix
   ];
 
   options = {
@@ -28,7 +34,7 @@ in {
     ];
 
     home.activation = {
-      # Clone dotfiles repo
+      # Clone dotfiles repo if it doesn't exist to not break symlinks
       cloneDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
         if ! [[ -d "${config.dotfiles}" ]]; then
                  ${pkgs.git}/bin/git clone https://github.com/fabiooo4/dotfiles.git ${config.dotfiles}
@@ -41,61 +47,6 @@ in {
                  ${pkgs.git}/bin/git remote add origin git@github.com:fabiooo4/Neovim.git
                fi
       '';
-    };
-
-    # Zsh
-    home.activation = {
-      # Clone zplug for plugin management
-      # This is needed because all the plugins are in .zshrc
-      cloneZplug = lib.hm.dag.entryAfter ["writeBoundary"] ''
-        if ! [[ -d "${config.home.homeDirectory}/.zplug" ]]; then
-                 ${pkgs.git}/bin/git clone https://github.com/zplug/zplug ~/.zplug
-               fi
-      '';
-    };
-    home.file = {
-      ".zshrc" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.zshrc";
-      };
-
-      ".zsh" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.zsh";
-      };
-    };
-
-    # Latexmkrc
-    home.file = {
-      ".latexmkrc" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.latexmkrc";
-      };
-    };
-
-    # Gitconfig
-    home.file = {
-      ".gitconfig" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.gitconfig";
-      };
-    };
-
-    # Sioyek
-    home.file = {
-      ".config/sioyek" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.config/sioyek";
-      };
-    };
-
-    # Nvim
-    home.file = {
-      ".config/nvim" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.config/nvim";
-      };
-    };
-
-    # Starship
-    home.file = {
-      ".config/starship.toml" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.dotfiles}/.config/starship.toml";
-      };
     };
   };
 }
