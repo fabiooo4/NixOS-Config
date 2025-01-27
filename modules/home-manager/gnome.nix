@@ -70,6 +70,12 @@
         "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
       ];
 
+    # Favorite apps
+    "org/gnome/shell".favorite-apps = [
+      "google-chrome.desktop"
+      "kitty.desktop"
+    ];
+
     # AltTab Mod
     "org/gnome/shell/extensions/altTab-mod" = {
       raise-first-instance-only = true;
@@ -81,6 +87,7 @@
     "org/gnome/shell/extensions/app-hider".hidden-apps = [
       "org.gnome.Extensions.desktop"
       "nvim.desktop"
+      "yazi.desktop"
     ];
 
     # App Indicator
