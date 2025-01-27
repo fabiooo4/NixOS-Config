@@ -58,6 +58,7 @@
     compiz-windows-effect
     hide-keyboard-layout
     hide-top-bar
+    remove-world-clocks
   ];
 
   dconf.settings = {
