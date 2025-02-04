@@ -42,6 +42,10 @@
         url = "https://raw.githubusercontent.com/fabiooo4/wallpapers/main/wallhaven-5w6w89.png";
         hash = "sha256-Z+CICFZSN64oIhhe66X7RlNn/gGCYAn30NLNoEHRYJY=";
       };
+      profilePicture = pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/fabiooo4/wallpapers/main/pfp/nika.png";
+        hash = "sha256-Z+CICFZSN64oIhhe66X7RlNn/gGCYAn30NLNoEHRYJY=";
+      };
       term = "kitty"; # Default terminal command
       editor = "nvim"; # Default editor
       browser = "google-chrome"; # Default browser
