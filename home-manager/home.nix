@@ -14,6 +14,7 @@ in {
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
     ./dotfiles
     ../modules/home-manager/gnome.nix
+    ../modules/home-manager/spicetify.nix
   ];
   nixpkgs.config.allowUnfree = true;
 
