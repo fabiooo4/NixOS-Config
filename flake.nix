@@ -68,10 +68,11 @@
           inherit userSettings;
         };
         modules = [
-          ./nixos/configuration.nix
-          # inputs.home-manager.nixosModules.default
+          inputs.nix-flatpak.nixosModules.nix-flatpak
           inputs.xremap-flake.nixosModules.default
           inputs.stylix.nixosModules.stylix
+
+          ./nixos/configuration.nix
         ];
       };
     };

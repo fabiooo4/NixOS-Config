@@ -69,11 +69,6 @@ in {
   };
 
   # Flatpaks
-  services.flatpak.enable = true;
-  services.flatpak.update.auto = {
-    enable = true;
-    onCalendar = "weekly"; # Default value
-  };
   services.flatpak.packages = [
     "com.github.ahrm.sioyek"
     {

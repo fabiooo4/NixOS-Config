@@ -151,6 +151,13 @@
   # $ nix search wget
   environment.systemPackages = [];
 
+  # Flatpaks
+  services.flatpak.enable = true;
+  services.flatpak.update.auto = {
+    enable = true;
+    onCalendar = "weekly"; # Default value
+  };
+
   # Change default shell to zsh
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
