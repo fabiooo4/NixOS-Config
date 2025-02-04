@@ -165,10 +165,7 @@
   stylix.enable = true;
   stylix = {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-    image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/fabiooo4/wallpapers/main/wallhaven-5w6w89.png";
-      hash = "sha256-Z+CICFZSN64oIhhe66X7RlNn/gGCYAn30NLNoEHRYJY=";
-    };
+    image = userSettings.wallpaper;
   };
 
   stylix.targets.chromium.enable = false;
