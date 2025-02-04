@@ -23,7 +23,10 @@ in {
       beautifulLyrics
       playNext
     ];
-    theme = spicePkgs.themes.comfy;
+    theme = spicePkgs.themes.text;
+    /*
+       theme = spicePkgs.themes.comfy;
     colorScheme = "Spotify";
+    */
   };
 }
