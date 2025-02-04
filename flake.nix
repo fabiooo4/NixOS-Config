@@ -44,7 +44,7 @@
       };
       profilePicture = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/fabiooo4/wallpapers/main/pfp/nika.png";
-        hash = "sha256-Z+CICFZSN64oIhhe66X7RlNn/gGCYAn30NLNoEHRYJY=";
+        hash = "sha256-m6NYaEL9KZ3GHPbDLUS5Qad9Oh1n60uwukdWMWlq7/o=";
       };
       term = "kitty"; # Default terminal command
       editor = "nvim"; # Default editor
