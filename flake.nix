@@ -97,7 +97,7 @@
 
       install = pkgs.writeShellApplication {
         name = "install";
-        runtimeInputs = with pkgs; [git];
+        runtimeInputs = with pkgs; [git nh];
         text = ''${./install.sh} "$@"'';
       };
     });

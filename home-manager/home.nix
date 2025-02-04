@@ -23,6 +23,7 @@ in {
   # The home.packages option allows you to install Nix packages into your
   # environment
   home.packages = with pkgs; [
+    nh
     rebuild-script
 
     git
@@ -61,7 +62,8 @@ in {
   home.sessionVariables = {
     EDITOR = userSettings.editor;
     BROWSER = userSettings.browser;
-    TERMINAS = userSettings.term;
+    TERMINAL = userSettings.term;
+    FLAKE = userSettings.nixosConfigDir;
   };
 
   # Style
