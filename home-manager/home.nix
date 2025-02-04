@@ -36,7 +36,6 @@ in {
     starship
     yazi
 
-    sioyek
     kitty
     google-chrome
 
@@ -71,10 +70,6 @@ in {
   # Flatpaks
   services.flatpak.packages = [
     "com.github.ahrm.sioyek"
-    {
-      appId = "com.brave.Browser";
-      origin = "flathub";
-    }
   ];
 
   # Style
