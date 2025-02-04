@@ -80,8 +80,9 @@
 
     # Favorite apps
     "org/gnome/shell".favorite-apps = [
-      "google-chrome.desktop"
       "kitty.desktop"
+      "google-chrome.desktop"
+      "nautilus.desktop"
     ];
 
     # AltTab Mod
