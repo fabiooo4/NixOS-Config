@@ -59,6 +59,7 @@
     hide-keyboard-layout
     hide-top-bar
     remove-world-clocks
+    color-picker
   ];
 
   dconf.settings = {
@@ -158,6 +159,15 @@
       shortcut-keybinds = [];
       show-in-overview = true;
     };
+
+    # Color picker
+    "org/gnome/shell/extensions/color-picker" = {
+      enable-systray = false;
+      enable-shortcut = true;
+      color-picker-shortcut = ["<Super>0"];
+      preview-style = 1;
+      enable-sound = false;
+    };
   };
 
   # Burn My Windows has a config file
@@ -188,5 +198,4 @@
     tv-effect-color="${config.lib.stylix.colors.withHashtag.base00}"
     tv-animation-time=200
   '';
-  # tv-effect-color="rgb(40,40,40)"
 }

@@ -25,9 +25,11 @@ in {
   # The home.packages option allows you to install Nix packages into your
   # environment
   home.packages = with pkgs; [
+    # Nix management
     nh
     rebuild-script
 
+    # CLI Tools
     git
     zoxide
     fzf
@@ -36,8 +38,10 @@ in {
     starship
     yazi
 
+    # GUI Apps
     kitty
     google-chrome
+    vesktop
   ];
 
   home.sessionVariables = {
