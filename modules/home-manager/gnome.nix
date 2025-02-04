@@ -83,6 +83,7 @@
       "kitty.desktop"
       "google-chrome.desktop"
       "nautilus.desktop"
+      "spotify.desktop"
     ];
 
     # AltTab Mod
