@@ -86,7 +86,6 @@
         };
         modules = [
           inputs.stylix.homeManagerModules.stylix
-          inputs.nix-flatpak.homeManagerModules.nix-flatpak
           ./home-manager/home.nix
         ];
       };

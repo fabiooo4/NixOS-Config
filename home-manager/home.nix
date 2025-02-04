@@ -1,7 +1,7 @@
 {
   config,
-  inputs,
   pkgs,
+  inputs,
   userSettings,
   ...
 }: let
@@ -11,6 +11,7 @@
   };
 in {
   imports = [
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
     ./dotfiles
     ../modules/home-manager/gnome.nix
   ];
