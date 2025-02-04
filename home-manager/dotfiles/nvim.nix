@@ -15,6 +15,28 @@
     enable = true;
     defaultEditor = true;
     extraLuaPackages = ps: [ps.magick];
-    extraPackages = [pkgs.imagemagick];
+    extraPackages = with pkgs; [
+      imagemagick
+
+      # Neovim plugin dependencies
+      lua51Packages.lua
+      luajitPackages.luarocks
+      stylua
+      nixd
+      alejandra
+      nodePackages.prettier
+      ripgrep
+      gcc
+      nodejs
+      xclip
+      fd
+      unzip
+      wget
+      tree-sitter
+      texliveFull
+      gnumake
+      rustup
+      # --------------
+    ];
   };
 }

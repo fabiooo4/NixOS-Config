@@ -38,26 +38,6 @@ in {
 
     kitty
     google-chrome
-
-    # Neovim dependencies
-    lua51Packages.lua
-    luajitPackages.luarocks
-    stylua
-    nixd
-    alejandra
-    nodePackages.prettier
-    ripgrep
-    gcc
-    nodejs
-    xclip
-    fd
-    unzip
-    wget
-    tree-sitter
-    texliveFull
-    gnumake
-    rustup
-    # --------------
   ];
 
   home.sessionVariables = {
