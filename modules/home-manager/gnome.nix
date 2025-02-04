@@ -1,14 +1,8 @@
 {
   pkgs,
   config,
-  userSettings,
   ...
 }: rec {
-  # Change gnome user profile picture
-  home.file.".face/pfp.png" = {
-    source = userSettings.profilePicture;
-  };
-
   # To get these settings so that you can add them to your configuration after manually configuring them
   # `dconf dump /org/gnome/`
   # Another way to do this is to do `dconf watch /org/gnome` and then make the changes you want and then migrate them in as you see what they are.

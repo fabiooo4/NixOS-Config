@@ -63,22 +63,6 @@
 
   services.gnome.core-utilities.enable = false;
 
-  # Change gnome user profile picture
-  # (workaround) https://wiki.nixos.org/wiki/GNOME#Change_Profile_Photo_for_Login_and_Lockscreen_-_Declarative
-  system.activationScripts.script.text = ''
-    if ! [[ -d "/home/${userSettings.username}/.face" ]]; then
-        mkdir -p /var/lib/AccountsService/{icons,users}
-        cp /home/${userSettings.username}/.face /var/lib/AccountsService/icons/${userSettings.username}
-        echo -e "[User]\nIcon=/var/lib/AccountsService/icons/${userSettings.username}\n" > /var/lib/AccountsService/users/${userSettings.username}
-
-        chown root:root /var/lib/AccountsService/users/${userSettings.username}
-        chmod 0600 /var/lib/AccountsService/users/${userSettings.username}
-
-        chown root:root /var/lib/AccountsService/icons/${userSettings.username}
-        chmod 0444 /var/lib/AccountsService/icons/${userSettings.username}
-    fi
-  '';
-
   # Remove default programs
   documentation.nixos.enable = false;
   services.xserver.excludePackages = [pkgs.xterm];
