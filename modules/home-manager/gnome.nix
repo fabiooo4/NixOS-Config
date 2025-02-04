@@ -4,7 +4,7 @@
   userSettings,
   ...
 }: rec {
-  # Change user profile picture
+  # Change gnome user profile picture
   home.file.".face/pfp.png" = {
     source = userSettings.profilePicture;
   };
