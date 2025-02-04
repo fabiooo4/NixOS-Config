@@ -43,6 +43,13 @@
       move-to-workspace-3 = ["<Shift><Super>3"];
       move-to-workspace-4 = ["<Shift><Super>4"];
     };
+
+    # Tweaks
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:minimize,maximize,close";
+      resize-with-right-button = true;
+      action-middle-click-titlebar = "minimize";
+    };
   };
 
   #

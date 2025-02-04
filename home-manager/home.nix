@@ -42,6 +42,14 @@ in {
     kitty
     google-chrome
     vesktop
+    showtime
+    qalculate-gtk
+    zoom
+    resources
+    baobab
+    neovide
+    gnome-characters
+    nautilus
   ];
 
   home.sessionVariables = {
