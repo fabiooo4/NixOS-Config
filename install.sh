@@ -29,4 +29,4 @@ nh os switch $SCRIPT_DIR -H system;
 
 # Install and build home-manager configuration
 # nix run home-manager/master --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake $SCRIPT_DIR#user;
-nh home switch $SCRIPT_DIR -H user
+nh home switch $SCRIPT_DIR -c user

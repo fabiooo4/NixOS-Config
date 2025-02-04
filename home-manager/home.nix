@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   userSettings,
   ...
@@ -65,6 +66,20 @@ in {
     TERMINAL = userSettings.term;
     FLAKE = userSettings.nixosConfigDir;
   };
+
+  # Flatpaks
+  services.flatpak.enable = true;
+  services.flatpak.update.auto = {
+    enable = true;
+    onCalendar = "weekly"; # Default value
+  };
+  services.flatpak.packages = [
+    "com.github.ahrm.sioyek"
+    {
+      appId = "com.brave.Browser";
+      origin = "flathub";
+    }
+  ];
 
   # Style
   stylix.enable = true;

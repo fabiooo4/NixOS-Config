@@ -12,6 +12,8 @@
     xremap-flake.url = "github:xremap/nix-flake";
 
     stylix.url = "github:danth/stylix";
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
   };
 
   outputs = {
@@ -84,6 +86,7 @@
         };
         modules = [
           inputs.stylix.homeManagerModules.stylix
+          inputs.nix-flatpak.homeManagerModules.nix-flatpak
           ./home-manager/home.nix
         ];
       };
