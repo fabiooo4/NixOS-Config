@@ -9,16 +9,21 @@ in {
     inputs.spicetify-nix.homeManagerModules.spicetify
   ];
 
+  # Disable auto stylix theming
   stylix.targets.spicetify.enable = false;
 
   programs.spicetify = {
     enable = true;
+    enabledCustomApps = with spicePkgs.apps; [
+      marketplace
+    ];
     enabledExtensions = with spicePkgs.extensions; [
       adblockify
       hidePodcasts
-      shuffle # shuffle+ (special characters are sanitized out of extension names)
+      beautifulLyrics
+      playNext
     ];
     theme = spicePkgs.themes.comfy;
-    # colorScheme = "mocha";
+    colorScheme = "Spotify";
   };
 }
