@@ -84,6 +84,7 @@
   # Configure remaps
   services.xremap = {
     userName = userSettings.username;
+    withGnome = true;
     config = {
       keymap = [
         {
