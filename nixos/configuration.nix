@@ -93,12 +93,14 @@
             "capslock" = "esc";
           };
         }
-        {
+        /*
+           {
           name = "Super to mouse";
           remap = {
             "BTN_SIDE" = "super";
           };
         }
+        */
       ];
     };
   };
