@@ -32,6 +32,7 @@ in {
 
     # CLI Tools
     git
+    rustup
     zoxide
     fzf
     eza
