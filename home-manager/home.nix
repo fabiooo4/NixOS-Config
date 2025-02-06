@@ -48,7 +48,6 @@ in {
     zoom
     resources
     baobab
-    neovide
     gnome-characters
     nautilus
   ];
