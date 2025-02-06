@@ -96,7 +96,7 @@
         {
           name = "Super to mouse";
           remap = {
-            "C-b" = "super_l";
+            "BTN_EXTRA" = "super_l";
           };
         }
       ];
