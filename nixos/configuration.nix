@@ -93,10 +93,12 @@
             "capslock" = "esc";
           };
         }
+      ];
+      modmap = [
         {
           name = "Super to mouse";
           remap = {
-            "C-b" = "p";
+            "C-b" = "SUPER";
           };
         }
       ];
