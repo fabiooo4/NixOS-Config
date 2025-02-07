@@ -13,6 +13,7 @@
     ./nvim.nix
     ./starship.nix
     ./rust.nix
+    ./xournalpp.nix
   ];
 
   home.activation = {

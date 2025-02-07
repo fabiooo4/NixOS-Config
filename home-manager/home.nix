@@ -93,6 +93,13 @@ in {
     sansSerif = config.stylix.fonts.monospace;
   };
 
+  stylix.iconTheme = {
+    enable = true;
+    package = pkgs.papirus-icon-theme;
+    dark = "Papirus Dark";
+    light = "Papirus Light";
+  };
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
