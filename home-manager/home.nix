@@ -90,6 +90,7 @@ in {
       sansSerif = config.stylix.fonts.monospace;
     };
     iconTheme = {
+      enable = true;
       package = pkgs.papirus-icon-theme;
       dark = "Papirus Dark";
       light = "Papirus Light";
