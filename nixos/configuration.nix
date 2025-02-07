@@ -178,27 +178,27 @@
   ];
 
   # Style
-  stylix.enable = true;
   stylix = {
+    enable = true;
+    targets.chromium.enable = false;
+
+    polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+
     image = userSettings.wallpaper;
-  };
-
-  stylix.targets.chromium.enable = false;
-
-  stylix.cursor = {
-    package = userSettings.cursorPkg;
-    name = userSettings.cursor;
-    size = 24;
-  };
-
-  stylix.fonts = {
-    monospace = {
-      package = userSettings.fontPkg;
-      name = userSettings.font;
+    cursor = {
+      package = userSettings.cursorPkg;
+      name = userSettings.cursor;
+      size = 24;
     };
-    serif = config.stylix.fonts.monospace;
-    sansSerif = config.stylix.fonts.monospace;
+    fonts = {
+      monospace = {
+        package = userSettings.fontPkg;
+        name = userSettings.font;
+      };
+      serif = config.stylix.fonts.monospace;
+      sansSerif = config.stylix.fonts.monospace;
+    };
   };
 
   # List services that you want to enable:

@@ -68,37 +68,32 @@ in {
   ];
 
   # Style
-  stylix.enable = true;
   stylix = {
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-    image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/fabiooo4/wallpapers/main/wallhaven-5w6w89.png";
-      hash = "sha256-Z+CICFZSN64oIhhe66X7RlNn/gGCYAn30NLNoEHRYJY=";
-    };
-  };
-
-  stylix.targets.neovim.enable = false;
-
-  stylix.cursor = {
-    package = userSettings.cursorPkg;
-    name = userSettings.cursor;
-    size = 24;
-  };
-
-  stylix.fonts = {
-    monospace = {
-      package = userSettings.fontPkg;
-      name = userSettings.font;
-    };
-    serif = config.stylix.fonts.monospace;
-    sansSerif = config.stylix.fonts.monospace;
-  };
-
-  stylix.iconTheme = {
     enable = true;
-    package = pkgs.papirus-icon-theme;
-    dark = "Papirus Dark";
-    light = "Papirus Light";
+    targets.neovim.enable = false;
+
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+
+    image = userSettings.wallpaper;
+    cursor = {
+      package = userSettings.cursorPkg;
+      name = userSettings.cursor;
+      size = 24;
+    };
+    fonts = {
+      monospace = {
+        package = userSettings.fontPkg;
+        name = userSettings.font;
+      };
+      serif = config.stylix.fonts.monospace;
+      sansSerif = config.stylix.fonts.monospace;
+    };
+    iconTheme = {
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus Dark";
+      light = "Papirus Light";
+    };
   };
 
   # Nicely reload system units when changing configs
