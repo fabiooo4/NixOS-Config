@@ -67,6 +67,7 @@
     hide-top-bar
     remove-world-clocks
     color-picker
+    xremap
   ];
 
   dconf.settings = {
