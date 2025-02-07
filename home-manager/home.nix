@@ -52,6 +52,7 @@ in {
     neovide
     gnome-characters
     nautilus
+    xournalpp
   ];
 
   home.sessionVariables = {
